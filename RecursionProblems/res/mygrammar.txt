@@ -1,0 +1,8 @@
+P1::=P2|P2A P2B P2C
+P2::=X1 X2|X3
+P2A::=x|y|z|a|b|c
+P2B::=reh|Dah|qapla
+P2C::=zadzwonic|janek|nie
+X1::=j887|k989|c837
+X2::=hija|ghobe
+X3::=dorian|mixolydian|phrygian

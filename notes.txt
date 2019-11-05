@@ -1,0 +1,171 @@
+size = 400 and x = 150 and midpoint is: 200 and height is: 346.41
+size = 200 and x = 150 and midpoint is: 100 and height is: 173.205
+size = 200 and x = 275 and midpoint is: 100 and height is: 173.205
+
+
+// TODO: write this function
+
+/*
+const int SIERPINSKI_WINDOW_WIDTH = 700;
+const int SIERPINSKI_WINDOW_HEIGHT = 450;
+const int SIERPINSKI_FIGURE_SIZE = 400;
+const int SIERPINSKI_FIGURE_Y = 20;
+int x0 = (SIERPINSKI_WINDOW_WIDTH (700) - SIERPINSKI_FIGURE_SIZE (400)) / 2;  // center
+int y0 = SIERPINSKI_FIGURE_Y;
+
+
+    try {
+        drawSierpinskiTriangle(gw, x0, y0, SIERPINSKI_FIGURE_SIZE, order);
+
+gw.drawLine(x1, y1, x2, y2); draws a line from point (x1, y1) to point (x2, y2);
+*/
+
+
+
+   gw.setColor("GREEN");
+
+   //bottom center one
+ drawSierpinskiTriangle(gw,
+                        (size/4)+x, //x
+                        (height-y)/2, //y
+                        size/2, //size
+                        order-1 ); //order
+
+
+// This is the .cpp file you will edit and turn in.
+// We have provided a skeleton for you,
+// but you must finish it as described in the spec.
+// Also remove these comments here and add your own.
+// TODO: remove this comment header
+
+// Please feel free to add any other #includes you need!
+#include "recursionproblems.h"
+#include <cmath>
+#include <iostream>
+#include "hashmap.h"
+#include "map.h"
+#include "random.h"
+#include "string.h"
+#include "windows.h"
+#include "gtypes.h"
+using namespace std;
+
+int countKarelPaths(int street, int avenue) {
+    // TODO: write this function
+    return 0;
+}
+
+int convertStringToInteger(string exp) {
+
+
+
+    char zerochar = '0';
+    int myInt;
+
+    if (exp.length() > 0){
+
+        if (exp.find_first_not_of("0123456789") != 4294967295) {
+         cout << "enter a digit" << endl;
+         cout << endl;
+         return 0;
+        }
+
+
+        //chop off right most digit
+        char rightCharacter = stringToChar(exp.substr( exp.length()-1, 1));
+
+
+        //get everything else:
+        string restOfString = exp.substr(0, exp.length()-1);
+        myInt = (rightCharacter - zerochar) + (convertStringToInteger(restOfString) * 10);
+        return myInt;
+
+    }
+
+    return 0;
+}
+
+bool isBalanced(string exp) {
+    // TODO: write this function
+    return false;
+}
+
+double weightOnKnees(int row, int col, Vector<Vector<double> >& weights) {
+    // TODO: write this function
+    return 0.0;
+}
+
+void drawSierpinskiTriangle(GWindow& gw, double x, double y, int size, int order) {
+
+    //this is a value, not a coordinate and is used to calc the triangle height
+    double midPoint = size/2;
+
+    //value:
+    double heightL = sqrt(3)*(midPoint);
+    double height = heightL + y;
+
+    cout << "size = " << size << " and x = "
+         << x << " and midpoint is: " << midPoint << " and height is: "
+         << height << " and y is: " << y << endl;
+
+double x0 = size + x; //size is 400 but it starts at 150, so triangle should go from x150 to x550
+
+gw.drawLine(x,//150
+            y,
+            x0,//550
+            y);
+
+gw.drawLine(x,
+            y,
+            (x+x0)/2,
+            height);
+
+gw.drawLine((x+x0)/2,
+            height,
+            x0,
+            y);
+
+
+    if (order >= 0) {
+//draw 3 triangles inside the one wwe just drew
+
+        gw.setColor("RED");
+
+       //upper left one first
+     drawSierpinskiTriangle(gw,
+                            x, //x
+                            y, //y
+                            size/2, //size
+                            order-1 ); //order
+
+     gw.setColor("BLUE");
+
+     //upper right one first
+   drawSierpinskiTriangle(gw,
+                          (size/2)+x, //x
+                          y, //y
+                          size/2, //size
+                          order-1 ); //order
+
+
+   gw.setColor("GREEN");
+
+      //bottom center one
+    drawSierpinskiTriangle(gw,
+                           (size/4)+x, //x
+                           (heightL/2)+y, //y
+                           size/2, //size
+                           order-1 ); //order
+    }
+ }
+
+int floodFill(GBufferedImage& image, int x, int y, int color) {
+    // TODO: write this function
+    return 0;
+}
+
+Vector<string> grammarGenerate(istream& input, string symbol, int times) {
+    // TODO: write this function
+    Vector<string> v;
+    return v;
+}
